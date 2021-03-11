@@ -1,21 +1,15 @@
 <template>
   <div id="app">
-    <game-board :cardDeck="deck" />
+    <game-board />
   </div>
 </template>
 
 <script>
   import GameBoard from "./components/GameBoard.vue";
-  import getPokemonCards from "@/data";
-  import shuffle from "lodash.shuffle";
+
   export default {
     name: "App",
     components: { GameBoard },
-    data() {
-      return {
-        deck: shuffle(getPokemonCards()),
-      };
-    },
   };
 </script>
 

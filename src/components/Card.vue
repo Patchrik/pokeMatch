@@ -1,25 +1,22 @@
 <template>
-  <vue-flip width="7em" height="8em" active-click>
+  <vue-flip
+    width="7em"
+    height="8em"
+    v-model="Card.unmatched"
+    @click.native="clickCard(Card)"
+  >
     <template v-slot:front>
-      <v-card
-        class="cardContainer"
-        key="imageNum"
-        @click="flipCard(Card.name, Card.number)"
-      >
+      <v-card class="cardContainer" key="imageNum">
         <img
-          :src="require('@/assets/pokeCards/Back-Card.png')"
+          :src="require('@/assets/pokeCards/' + Card.image)"
           :alt="Card.name"
         />
       </v-card>
     </template>
     <template v-slot:back>
-      <v-card
-        class="cardContainer"
-        key="imageNum"
-        @click="flipCard(Card.name, Card.number)"
-      >
+      <v-card class="cardContainer" key="imageNum">
         <img
-          :src="require('@/assets/pokeCards/' + Card.image)"
+          :src="require('@/assets/pokeCards/Back-Card.png')"
           :alt="Card.name"
         />
       </v-card>
@@ -32,16 +29,19 @@
   export default {
     components: { "vue-flip": VueFlip },
     data() {
-      return {
-        facedown: true,
-      };
+      return {};
     },
-    props: {
-      Card: Object,
-    },
+    props: ["Card", "Guess1", "Guess2"],
     methods: {
-      flipCard(name, num) {
-        console.log(name, num);
+      clickCard(Card) {
+        if (Card.unmatched === false) {
+          console.log("You've already clicked that card");
+          return;
+        } else if (this.Guess1 != null && this.Guess2 != null) {
+          console.log("You've made 2 guesses!");
+          return;
+        }
+        this.$emit("card-clicked", Card);
       },
     },
   };
