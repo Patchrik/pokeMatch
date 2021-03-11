@@ -1,5 +1,7 @@
 <template>
-  <img :src="require('@/assets/pokeCards/' + imageSRC)" :alt="imageName" />
+  <v-card class="cardContainer">
+    <img :src="require('@/assets/pokeCards/' + imageSRC)" :alt="imageName" />
+  </v-card>
 </template>
 
 <script>
@@ -11,4 +13,11 @@
   };
 </script>
 
-<style></style>
+<style>
+  cardContainer {
+    margin: 1em;
+    padding: 1em;
+    max-width: 4em;
+    height: auto;
+  }
+</style>
