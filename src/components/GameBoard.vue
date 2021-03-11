@@ -8,9 +8,13 @@
           :Guess1="guess1"
           :Guess2="guess2"
           @card-clicked="handleFlip"
+          @snack-msg="handleSnack"
         />
       </div>
     </v-row>
+    <v-snackbar :value="snack" bottom color="red" right rounded="pill">
+      {{ snackText }}
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -26,6 +30,8 @@
         guess1: null,
         guess2: null,
         matched: [],
+        snack: false,
+        snackText: "",
       };
     },
     methods: {
@@ -65,6 +71,13 @@
         if (this.guess1 && this.guess2) {
           this.handleMatching();
         }
+      },
+      handleSnack(item) {
+        this.snack = item.bool;
+        this.snackText = item.msg;
+        setTimeout(() => {
+          this.snack = !this.snack;
+        }, 1000);
       },
     },
     computed: {

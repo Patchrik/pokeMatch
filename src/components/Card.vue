@@ -36,9 +36,17 @@
       clickCard(Card) {
         if (Card.unmatched === false) {
           console.log("You've already clicked that card");
+          this.$emit("snack-msg", {
+            msg: "You've already clicked that card",
+            bool: true,
+          });
           return;
         } else if (this.Guess1 != null && this.Guess2 != null) {
           console.log("You've made 2 guesses!");
+          this.$emit("snack-msg", {
+            msg: "You've already made 2 guesses!",
+            bool: true,
+          });
           return;
         }
         this.$emit("card-clicked", Card);
