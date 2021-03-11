@@ -1,0 +1,148 @@
+export default function getPokemonCards() {
+  return [
+    {
+      id: 1,
+      name: "Alakazam",
+      number: 1,
+      image: "Alakazam-Card.jpg",
+    },
+    {
+      id: 2,
+      name: "Blastoise",
+      number: 2,
+      image: "Blastoise-Card.jpg",
+    },
+    {
+      id: 3,
+      name: "Chansey",
+      number: 3,
+      image: "Chansey-Card.jpg",
+    },
+    {
+      id: 4,
+      name: "Charizard",
+      number: 4,
+      image: "Charizard-Card.jpg",
+    },
+    {
+      id: 5,
+      name: "Clefairy",
+      number: 5,
+      image: "Clefairy-Card.jpg",
+    },
+    {
+      id: 6,
+      name: "Gyarados",
+      number: 6,
+      image: "Gyarados-Card.jpg",
+    },
+    {
+      id: 7,
+      name: "Hitmonchan",
+      number: 7,
+      image: "Hitmonchan-Card.jpg",
+    },
+    {
+      id: 8,
+      name: "Machamp",
+      number: 8,
+      image: "Machamp-Card.jpg",
+    },
+    {
+      id: 9,
+      name: "Mewtwo",
+      number: 9,
+      image: "Mewtwo-Card.jpg",
+    },
+    {
+      id: 10,
+      name: "Ninetales",
+      number: 10,
+      image: "Ninetales-Card.jpg",
+    },
+    {
+      id: 11,
+      name: "Raichu",
+      number: 11,
+      image: "Raichu-Card.jpg",
+    },
+    {
+      id: 12,
+      name: "Venusaur",
+      number: 12,
+      image: "Venusaur-Card.jpg",
+    },
+    {
+      id: 13,
+      name: "Alakazam",
+      number: 1,
+      image: "Alakazam-Card.jpg",
+    },
+    {
+      id: 14,
+      name: "Blastoise",
+      number: 2,
+      image: "Blastoise-Card.jpg",
+    },
+    {
+      id: 15,
+      name: "Chansey",
+      number: 3,
+      image: "Chansey-Card.jpg",
+    },
+    {
+      id: 16,
+      name: "Charizard",
+      number: 4,
+      image: "Charizard-Card.jpg",
+    },
+    {
+      id: 17,
+      name: "Clefairy",
+      number: 5,
+      image: "Clefairy-Card.jpg",
+    },
+    {
+      id: 18,
+      name: "Gyarados",
+      number: 6,
+      image: "Gyarados-Card.jpg",
+    },
+    {
+      id: 19,
+      name: "Hitmonchan",
+      number: 7,
+      image: "Hitmonchan-Card.jpg",
+    },
+    {
+      id: 20,
+      name: "Machamp",
+      number: 8,
+      image: "Machamp-Card.jpg",
+    },
+    {
+      id: 21,
+      name: "Mewtwo",
+      number: 9,
+      image: "Mewtwo-Card.jpg",
+    },
+    {
+      id: 22,
+      name: "Ninetales",
+      number: 10,
+      image: "Ninetales-Card.jpg",
+    },
+    {
+      id: 23,
+      name: "Raichu",
+      number: 11,
+      image: "Raichu-Card.jpg",
+    },
+    {
+      id: 24,
+      name: "Venusaur",
+      number: 12,
+      image: "Venusaur-Card.jpg",
+    },
+  ];
+}
