@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div style="appStyle" id="app">
     <game-board />
   </div>
 </template>
@@ -10,6 +10,11 @@
   export default {
     name: "App",
     components: { GameBoard },
+    date() {
+      return {
+        backgroundColor: "#0D47A1",
+      };
+    },
   };
 </script>
 
@@ -19,7 +24,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
     margin-top: 60px;
+  }
+  body {
+    background-color: lightblue;
   }
 </style>

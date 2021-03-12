@@ -1,6 +1,15 @@
 <template>
   <v-container class="game-board">
-    <h1>{{ gameStatus }}</h1>
+    <a href="https://fontmeme.com/pokemon-font/"
+      ><img
+        src="https://fontmeme.com/permalink/210312/5014fc4c0ac365b0e9c7d7a317c492fe.png"
+        alt="pokemon-font"
+        border="0"
+    /></a>
+    <v-snackbar :value="snackBool" :color="snackColor" top left>
+      {{ snackText }}
+    </v-snackbar>
+    <h2>{{ gameStatus }}</h2>
     <v-row>
       <div v-for="card in cardDeck" :key="card.id">
         <card
@@ -12,9 +21,6 @@
         />
       </div>
     </v-row>
-    <v-snackbar :value="snack" bottom color="red" right rounded="pill">
-      {{ snackText }}
-    </v-snackbar>
   </v-container>
 </template>
 
@@ -30,23 +36,35 @@
         guess1: null,
         guess2: null,
         matched: [],
-        snack: false,
+        snackBool: false,
         snackText: "",
+        snackColor: "grey-darken-3",
+        guesses: 0,
       };
     },
     methods: {
       handleMatching() {
         if (this.guess1.number === this.guess2.number) {
-          console.log("You matched");
           this.matched.push(this.guess2);
-          console.log(this.matched.length);
+          this.guesses++;
+          this.handleSnack({
+            msg: "You Found A Match!",
+            bool: true,
+            color: "light-green lighten-2",
+          });
 
           setTimeout(() => {
             this.guess1 = null;
             this.guess2 = null;
           }, 5);
         } else {
-          console.log("No match");
+          this.guesses++;
+          this.handleSnack({
+            msg: "No Match!",
+            bool: true,
+            color: "red lighten-1",
+          });
+
           setTimeout(() => {
             this.guess1.unmatched = true;
             this.guess2.unmatched = true;
@@ -73,30 +91,27 @@
         }
       },
       handleSnack(item) {
-        this.snack = item.bool;
+        this.snackBool = item.bool;
         this.snackText = item.msg;
+        this.snackColor = item.color;
         setTimeout(() => {
-          this.snack = !this.snack;
-        }, 1000);
+          this.snackBool = !this.snackBool;
+        }, 1500);
       },
     },
     computed: {
       gameStatus() {
         const score = this.matched.length;
         if (score >= 12) {
-          return "Are you winning, son? Looks like you're winning";
+          return `Looks like it took you ${this.guesses} Guesses to Match Em' All!`;
         } else if (score > 6 && score < 12) {
-          return "Looks like you're getting close?";
+          return `Looks like you're getting close?  You've Made ${this.guesses} Guesses`;
         } else {
-          return "You just blow in from stupid town?";
+          return `Gotta Match 'Em All! You've Made ${this.guesses} Guesses`;
         }
       },
     },
   };
 </script>
 
-<style>
-  .game-board {
-    background-image: url("/src/assets/bg-gym.jpg") repeat 0 0;
-  }
-</style>
+<style></style>

@@ -39,6 +39,7 @@
           this.$emit("snack-msg", {
             msg: "You've already clicked that card",
             bool: true,
+            color: "red lighten-1",
           });
           return;
         } else if (this.Guess1 != null && this.Guess2 != null) {
@@ -46,6 +47,7 @@
           this.$emit("snack-msg", {
             msg: "You've already made 2 guesses!",
             bool: true,
+            color: "red lighten-1",
           });
           return;
         }
