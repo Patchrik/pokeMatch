@@ -1,5 +1,5 @@
 <template>
-  <div style="appStyle" id="app">
+  <div id="app">
     <game-board />
   </div>
 </template>
